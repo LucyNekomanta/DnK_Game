@@ -14,6 +14,7 @@ namespace DnK_Game
             Console.WriteLine("Starting dnk_game");
 
             var q = new Quest();
+            var qp = new QuestPool();
 
             Console.ReadKey(true);
         }

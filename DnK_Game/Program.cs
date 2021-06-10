@@ -14,8 +14,9 @@ namespace DnK_Game
         {
             Console.WriteLine("Starting dnk_game");
 
-            var q = new Quest();
             var qp = new QuestPool();
+            qp.add(new Quest());
+          
             var g = new Guild();
 
             Console.ReadKey(true);

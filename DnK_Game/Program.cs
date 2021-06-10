@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DnK_Game.quests;
 
 namespace DnK_Game
 {
@@ -11,6 +12,9 @@ namespace DnK_Game
         static void Main(string[] args)
         {
             Console.WriteLine("Starting dnk_game");
+
+            var q = new Quest();
+
             Console.ReadKey(true);
         }
     }

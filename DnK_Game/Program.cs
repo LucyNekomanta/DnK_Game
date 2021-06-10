@@ -10,7 +10,7 @@ namespace DnK_Game
     {
         static void Main(string[] args)
         {
-            
+            Console.WriteLine("Starting dnk_game");
             Console.ReadKey(true);
         }
     }

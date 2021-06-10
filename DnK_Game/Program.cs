@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DnK_Game.quests;
-using DnK_Game.guild;
+﻿using DnK_Game.quests;
+using static System.Console;
 
 namespace DnK_Game
 {
@@ -12,14 +7,18 @@ namespace DnK_Game
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Starting dnk_game");
+            WriteLine("Starting dnk_game");
 
-            var qp = new QuestPool();
-            qp.add(new Quest());
-          
-            var g = new Guild();
+            var questBoard = new QuestPool();
+            questBoard.Add(new Quest("Quest 1: Goblilns on the run!"));
+            questBoard.Add(new Quest("Quest 2: How to get away with murder?"));
 
-            Console.ReadKey(true);
+            foreach (var quest in questBoard.List)
+            {
+                WriteLine($"{quest.Name}");
+            }
+
+            ReadKey(true);
         }
     }
 }

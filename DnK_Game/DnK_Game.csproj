@@ -48,12 +48,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="quests\Quest.cs" />
     <Compile Include="quests\QuestPool.cs" />
+    <Compile Include="guild\Guild.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="quests\" />
+    <Folder Include="guild\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

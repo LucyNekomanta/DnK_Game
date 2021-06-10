@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DnK_Game.quests;
+using DnK_Game.guild;
 
 namespace DnK_Game
 {
@@ -15,6 +16,7 @@ namespace DnK_Game
 
             var q = new Quest();
             var qp = new QuestPool();
+            var g = new Guild();
 
             Console.ReadKey(true);
         }

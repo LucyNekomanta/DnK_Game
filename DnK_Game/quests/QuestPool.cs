@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace DnK_Game.quests
 {
@@ -7,15 +6,8 @@ namespace DnK_Game.quests
     {
         private List<Quest> quests = new List<Quest>();
 
-        public QuestPool()
-        {
-            Console.WriteLine("Create QuestPool");
-        }
+        public void Add(Quest quest) => quests.Add(quest);
 
-        public void add(Quest quest)
-        {
-            Console.WriteLine("QuestPool append Quest");
-            quests.Add(quest);
-        }
+        public System.Collections.ObjectModel.ReadOnlyCollection<Quest> List => quests.AsReadOnly();
     }
 }

@@ -6,6 +6,20 @@ namespace DnK_Game
 {
     class Program
     {
+        static public void AcceptQuest(Guild guild, QuestPool quests, int questIdx)
+        {
+            if (quests.List.Count < questIdx)
+            {
+                WriteLine($"Can't accept Quest!\nquestIdx={questIdx}\nquest.List.Count={quests.List.Count}");
+                return;
+            }
+
+            var quest = quests.List[questIdx];
+            quests.Remove(quest);
+            guild.AddQuest(quest);
+            WriteLine($"The Guild \"{guild.Name}\" has accepted the quest \"{quest.Name}\"");
+        }
+
         static void Main(string[] args)
         {
             WriteLine("Starting dnk_game");
@@ -29,7 +43,8 @@ namespace DnK_Game
             var guild = new Guild("The Gamers");
             WriteLine($"Foundation of the Guild \"{guild.Name}\"");
 
-
+            // **** Accepting a Quest ****
+            AcceptQuest(guild, questBoard, 0);
 
             ReadKey(true);
         }

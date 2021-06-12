@@ -1,4 +1,5 @@
 ﻿using DnK_Game.quests;
+using DnK_Game.guild;
 using static System.Console;
 
 namespace DnK_Game
@@ -9,6 +10,7 @@ namespace DnK_Game
         {
             WriteLine("Starting dnk_game");
 
+
             var questBoard = new QuestPool();
             questBoard.Add(new Quest("Quest 1: Goblilns on the run!"));
             questBoard.Add(new Quest("Quest 2: How to get away with murder?"));
@@ -17,6 +19,9 @@ namespace DnK_Game
             {
                 WriteLine($"{quest.Name}");
             }
+
+            var guild = new Guild("The Gamers");
+            WriteLine($"Foundation of the Guild \"{guild.Name}\"");
 
             ReadKey(true);
         }

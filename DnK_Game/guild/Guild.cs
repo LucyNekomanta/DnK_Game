@@ -3,9 +3,8 @@ namespace DnK_Game.guild
 {
     public class Guild
     {
-        public Guild()
-        {
-            Console.WriteLine("Create Guild");
-        }
+        public Guild(string name) => Name = name;
+
+        public string Name { get; }
     }
 }

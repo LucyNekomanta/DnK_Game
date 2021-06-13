@@ -12,8 +12,8 @@ namespace DnK_Game
     public class GameControl
     {
         [NonSerialized] private static readonly string saveGameFileName = "Game1.save";
-        [NonSerialized] private Guild guild;
-        [NonSerialized] private QuestPool questBoard;
+        private Guild guild;
+        private QuestPool questBoard;
 
         public void Init()
         {
@@ -44,21 +44,26 @@ namespace DnK_Game
         private void SetupGuild()
         {
             // **** Guild ****
-            guild = new Guild("The Gamers");
-            WriteLine($"Foundation of the Guild \"{guild.Name}\"");
+            if (guild == null)
+            {
+                guild = new Guild("The Gamers");
+                WriteLine($"Foundation of the Guild \"{guild.Name}\"");
+            }
         }
 
         private void SetupQuests()
         {
-            // **** Quests ****
-            // Create a bunch of quests and store them in a QuestPool
-            questBoard = new QuestPool();
-            questBoard.Add(new Quest("Quest 1: Goblilns on the run!"));
-            questBoard.Add(new Quest("Quest 2: How to get away with murder?"));
+            if (questBoard == null)
+            {             // **** Quests ****
+                          // Create a bunch of quests and store them in a QuestPool
+                questBoard = new QuestPool();
+                questBoard.Add(new Quest("Quest 1: Goblilns on the run!"));
+                questBoard.Add(new Quest("Quest 2: How to get away with murder?"));
 
-            foreach (var quest in questBoard.List)
-            {
-                WriteLine($"{quest.Name}");
+                foreach (var quest in questBoard.List)
+                {
+                    WriteLine($"{quest.Name}");
+                }
             }
         }
 
@@ -84,9 +89,15 @@ namespace DnK_Game
 
         private void AcceptQuest(int questIdx)
         {
-            if (questBoard.List.Count < questIdx)
+            if ( questBoard.List.Count == 0)
             {
-                WriteLine($"Can't accept Quest!\nquestIdx={questIdx}\nquest.List.Count={questBoard.List.Count}");
+                WriteLine("There are no quests on this board.");
+                return;
+            }
+
+            if (questBoard.List.Count <= questIdx)
+            {
+                WriteLine($"Can't accept Quest! Index out of bound! \nquestIdx={questIdx}\nquest.List.Count={questBoard.List.Count}");
                 return;
             }
 

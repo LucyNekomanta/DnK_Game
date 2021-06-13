@@ -1,6 +1,10 @@
 ﻿using DnK_Game.quests;
+using System;
+
+
 namespace DnK_Game.guild
 {
+    [Serializable]
     public class Guild
     {
         public Guild(string name) => Name = name;

@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
+using System;
+
 
 namespace DnK_Game.quests
 {
+    [Serializable]
     public class QuestPool
     {
         private List<Quest> quests = new List<Quest>();

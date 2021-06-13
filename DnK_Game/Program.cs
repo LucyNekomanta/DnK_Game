@@ -8,11 +8,13 @@ namespace DnK_Game
         {
             WriteLine("Starting dnk_game");
 
-            GameControl gc = new GameControl();
+            GameControl gc = new GameControl() ;
 
-            gc.AcceptQuest(0);
+            gc.Init();
 
-            ReadKey(true);
+            gc.Run();
+
+            gc.Teardown();
         }
     }
 }

@@ -49,6 +49,7 @@
     <Compile Include="quests\Quest.cs" />
     <Compile Include="quests\QuestPool.cs" />
     <Compile Include="guild\Guild.cs" />
+    <Compile Include="GameControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

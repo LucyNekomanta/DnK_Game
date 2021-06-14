@@ -4,7 +4,7 @@ using System;
 using System.IO;
 using static System.Console;
 using System.Runtime.Serialization.Json;
-
+using System.Collections.Generic;
 
 namespace DnK_Game
 {
@@ -12,8 +12,10 @@ namespace DnK_Game
     public class GameControl
     {
         [NonSerialized] private static readonly string saveGameFileName = "Game1.save";
+
         private Guild guild;
         private QuestPool questBoard;
+        private List<DnKCharacters> heroPool;
 
         public void Init()
         {
@@ -39,6 +41,7 @@ namespace DnK_Game
 
             SetupGuild();
             SetupQuests();
+            SetupHeroes();
         }
 
         private void SetupGuild()
@@ -67,9 +70,27 @@ namespace DnK_Game
             }
         }
 
+        private void SetupHeroes()
+        {
+            if (heroPool == null)
+            {
+                heroPool = new List<DnKCharacters>
+                {
+                    new DnKCharacters() { heroName = "Muro", heroID = 0 },
+                    new DnKCharacters() { heroName = "Nekomanta", heroID = 1 }
+                };
+
+                foreach (var hero in heroPool)
+                {
+                   WriteLine($"{hero.heroName}");
+                }
+            }
+        }
+
         public void Run()
         {
             AcceptQuest(0);
+            RecruitHero(0);
         }
 
         public void Teardown()
@@ -105,6 +126,26 @@ namespace DnK_Game
             questBoard.Remove(quest);
             guild.AddQuest(quest);
             WriteLine($"The Guild \"{guild.Name}\" has accepted the quest \"{quest.Name}\"");
+        }
+
+        private void RecruitHero(int heroIdx)
+        {
+            if (heroPool.Count == 0)
+            {
+                WriteLine("There are no heroes available.");
+                return;
+            }
+
+            if (heroPool.Count <= heroIdx)
+            {
+                WriteLine($"Can't accept Quest! Index out of bound! \nquestIdx={heroIdx}\nquest.List.Count={heroPool.Count}");
+                return;
+            }
+
+            var hero = heroPool[heroIdx];
+            heroPool.Remove(hero);
+            guild.AddHero(hero);
+            WriteLine($"\"{hero.heroName}\" has joined the guild \"{guild.Name}\"");
         }
 
         public static void Serialize(GameControl obj, Stream stream)

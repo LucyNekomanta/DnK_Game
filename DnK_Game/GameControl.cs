@@ -149,6 +149,10 @@ namespace DnK_Game
             WriteLine($"\"{hero.Name}\" has joined the guild \"{guild.Name}\"");
         }
 
+        private void fight()
+        {
+        
+        }
         public static void Serialize(GameControl obj, Stream stream)
         {
             DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(GameControl));

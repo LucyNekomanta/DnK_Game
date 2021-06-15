@@ -7,5 +7,8 @@ namespace DnK_Game
     {
         public string Name { get; set; }
         public int ID { get; set; }
+        public double HP { get; set; }
+        public double Atk { get; set; }
+
     }
 }

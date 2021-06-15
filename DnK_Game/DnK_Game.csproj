@@ -45,7 +45,8 @@
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Character\DnKCharacterPool.cs" />
+    <Compile Include="Character\monsterPool.cs" />
+    <Compile Include="Character\heroPool.cs" />
     <Compile Include="Character\DnKCharacter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

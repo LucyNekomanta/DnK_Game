@@ -16,6 +16,7 @@ namespace DnK_Game
         private Guild guild;
         private QuestPool questBoard;
         private List<DnKCharacter> heroPool;
+        private List<DnKCharacter> monsterPool;
 
         public void Init()
         {
@@ -77,8 +78,8 @@ namespace DnK_Game
             {
                 heroPool = new List<DnKCharacter>
                 {
-                    new DnKCharacter() { Name = "Muro", ID = 0 },
-                    new DnKCharacter() { Name = "Nekomanta", ID = 1 }
+                    new DnKCharacter() { Name = "Muro", ID = 0, HP = 10, atk = 10 },
+                    new DnKCharacter() { Name = "Nekomanta", ID = 1, HP = 10, atk = 10 }
                 };
 
                 foreach (var hero in heroPool)
@@ -87,7 +88,22 @@ namespace DnK_Game
                 }
             }
         }
+        private void SetupMonsters()
+        {
+            if (monsterPool == null)
+            {
+                monsterPool = new List<DnKCharacter>
+                {
+                    new DnKCharacter() { Name = "Slime", ID = 1000, HP = 10, atk = 10 },
+                    new DnKCharacter() { Name = "Goblin", ID = 1001, HP = 10, atk = 10 }
+                };
 
+                foreach (var monster in monsterPool)
+                {
+                    WriteLine($"{monster.Name}");
+                }
+            }
+        }
         public void Run()
         {
             AcceptQuest(0);
@@ -151,7 +167,7 @@ namespace DnK_Game
 
         private void fight()
         {
-        
+            
         }
         public static void Serialize(GameControl obj, Stream stream)
         {

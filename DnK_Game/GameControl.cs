@@ -15,7 +15,7 @@ namespace DnK_Game
 
         private Guild guild;
         private QuestPool questBoard;
-        private List<DnKCharacters> heroPool;
+        private List<DnKCharacter> heroPool;
 
         public void Init()
         {
@@ -31,6 +31,7 @@ namespace DnK_Game
                     cp = DeSerialize(saveGame);
                     guild = cp.guild;
                     questBoard = cp.questBoard;
+                    heroPool = cp.heroPool;
                 }
                 catch (Exception e)
                 {
@@ -74,15 +75,15 @@ namespace DnK_Game
         {
             if (heroPool == null)
             {
-                heroPool = new List<DnKCharacters>
+                heroPool = new List<DnKCharacter>
                 {
-                    new DnKCharacters() { heroName = "Muro", heroID = 0 },
-                    new DnKCharacters() { heroName = "Nekomanta", heroID = 1 }
+                    new DnKCharacter() { Name = "Muro", ID = 0 },
+                    new DnKCharacter() { Name = "Nekomanta", ID = 1 }
                 };
 
                 foreach (var hero in heroPool)
                 {
-                   WriteLine($"{hero.heroName}");
+                 //  WriteLine($"{hero.heroName}");
                 }
             }
         }
@@ -145,7 +146,7 @@ namespace DnK_Game
             var hero = heroPool[heroIdx];
             heroPool.Remove(hero);
             guild.AddHero(hero);
-            WriteLine($"\"{hero.heroName}\" has joined the guild \"{guild.Name}\"");
+            WriteLine($"\"{hero.Name}\" has joined the guild \"{guild.Name}\"");
         }
 
         public static void Serialize(GameControl obj, Stream stream)

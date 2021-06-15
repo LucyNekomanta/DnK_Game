@@ -17,12 +17,12 @@ namespace DnK_Game.guild
         public System.Collections.ObjectModel.ReadOnlyCollection<Quest> QuestList => acceptedQuests.List;
 
         // **** Heroes ****
-        [NonSerialized] private List<DnKCharacters> heroes = new List<DnKCharacters>();
-        public void AddHero(DnKCharacters hero)
+        private List<DnKCharacter> heroes = new List<DnKCharacter>();
+        public void AddHero(DnKCharacter hero)
         {
             if (heroes == null)
             {
-                heroes = new List<DnKCharacters>() { hero };
+                heroes = new List<DnKCharacter>() { hero };
             }
             else
             {

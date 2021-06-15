@@ -83,7 +83,7 @@ namespace DnK_Game
 
                 foreach (var hero in heroPool)
                 {
-                 //  WriteLine($"{hero.heroName}");
+                   WriteLine($"{hero.Name}");
                 }
             }
         }

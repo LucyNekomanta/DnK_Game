@@ -33,6 +33,7 @@ namespace DnK_Game
                     guild = cp.guild;
                     questBoard = cp.questBoard;
                     heroPool = cp.heroPool;
+                    monsterPool = cp.monsterPool;
                 }
                 catch (Exception e)
                 {
@@ -44,6 +45,7 @@ namespace DnK_Game
             SetupGuild();
             SetupQuests();
             SetupHeroes();
+            SetupMonsters();
         }
 
         private void SetupGuild()
@@ -88,6 +90,7 @@ namespace DnK_Game
                 }
             }
         }
+
         private void SetupMonsters()
         {
             if (monsterPool == null)
@@ -108,6 +111,7 @@ namespace DnK_Game
         {
             AcceptQuest(0);
             RecruitHero(0);
+            Fight();
         }
 
         public void Teardown()
@@ -165,10 +169,24 @@ namespace DnK_Game
             WriteLine($"\"{hero.Name}\" has joined the guild \"{guild.Name}\"");
         }
 
-        private void fight()
+        private void Fight()
         {
-            
+            // Example 1 vs 1
+            // Prepare some fighters
+            DnKCharacter hero = new DnKCharacter() { Name = "Junipa", ID = 1, HP = 10001, atk = 10001 };
+            DnKCharacter monster = new DnKCharacter { Name = "WorldBoss", ID = 9999, HP = 1000, atk = 1000 };
+
+            WriteLine($"{hero.Name} vs {monster.Name}");
+
+            // each deals damage to the other
+            monster.HP -= hero.atk;
+            hero.HP -= monster.atk;
+
+            // write result
+            WriteLine($"{hero.Name} HP: {hero.HP}");
+            WriteLine($"{monster.Name} HP: {monster.HP}");
         }
+
         public static void Serialize(GameControl obj, Stream stream)
         {
             DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(GameControl));

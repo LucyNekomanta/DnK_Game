@@ -8,6 +8,8 @@ namespace DnK_Game
         //prop tab tab
         public string Name { get; set; }
         public int ID { get; set; }
+        public int lvl { get; set; }
+        public int exp { get; set; }
         public int HP { get; set; }
         public int atk { get; set; }
         public int def { get; set; }

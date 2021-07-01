@@ -14,14 +14,19 @@ namespace DnK_Game
             gc.Init();
 
             MenuNode mainMenu = new MenuNode("Main");
-            mainMenu.AddAction("Start", null);
+            mainMenu.AddAction("Start", gc.Run);
             mainMenu.AddAction("Exit", null);
 
             MenuNode settingsMenu = mainMenu.AddSubNode("Settings");
             settingsMenu.AddSubNode("Audio");
             settingsMenu.AddSubNode("Graphics");
 
-            mainMenu.Show();
+            int input = 0;
+            do
+            {
+                mainMenu.Show();
+                input = int.Parse(ReadLine());
+            } while (mainMenu.Select(input));
 
             gc.Teardown();
         }

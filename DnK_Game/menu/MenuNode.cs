@@ -1,26 +1,59 @@
-﻿using static System.Console;
+﻿using System;
+using static System.Console;
 using System.Collections.Generic;
 
 namespace DnK_Game.menu
 {
     public class MenuNode
     {
-        private readonly MenuNode Parent;
-        public List<MenuNode> SubNodes;
-        public List<MenuAction> EndNodes;
+        private readonly MenuNode Parent = null;
+        public List<MenuNode> SubNodes = new List<MenuNode>();
+        public List<MenuAction> EndNodes = new List<MenuAction>();
         public string Label { get; }
+
         public MenuNode(string label)
         {
             Label = label;
         }
 
-        public void show()
+        public MenuNode(string label, MenuNode parent)
         {
-            if ( SubNodes != null )
+            Label = label;
+            Parent = parent;
+        }
+
+        public MenuNode AddSubNode(string label)
+        {
+            MenuNode subNode = new MenuNode(label, this);
+            SubNodes.Add(subNode);
+            return subNode;
+        }
+
+        public void AddAction(string label, Action fn)
+        {
+            MenuAction action = new MenuAction(label, fn);
+            EndNodes.Add(action);
+        }
+
+        public void Show()
+        {
+            WriteLine($"# {Label}");
+
+            int menuIdx = 1;
+
+            foreach (MenuAction action in EndNodes)
+            {
+                WriteLine($"{menuIdx++}: {action.Label}");
+            }
+
             foreach (MenuNode node in SubNodes)
             {
-                WriteLine($"{SubNodes.IndexOf(node)}: {node.Label}");
-                node.show();
+                WriteLine($"{menuIdx}: > {node.Label}");
+            }
+
+            if (Parent != null)
+            {
+                WriteLine($"0: Back <");
             }
         }
     }

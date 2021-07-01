@@ -13,13 +13,20 @@ namespace DnK_Game
             GameControl gc = new GameControl();
             gc.Init();
 
-            Menu m = new Menu()
+            MenuNode m = new MenuNode("")
             {
-                Nodes = new List<MenuNode> {
+                SubNodes = new List<MenuNode> {
                              new MenuNode("Main")
                              {
                                  SubNodes = new List<MenuNode> {
                                      new MenuNode("Settings")
+                                     {
+                                         SubNodes = new List<MenuNode>
+                                         {
+                                             new MenuNode("Audio"),
+                                             new MenuNode("Grafics")
+                                         }
+                                     }
                                  },
                                  EndNodes = new List<MenuAction>
                                  {

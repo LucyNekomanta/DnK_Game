@@ -54,7 +54,6 @@
     <Compile Include="quests\QuestPool.cs" />
     <Compile Include="guild\Guild.cs" />
     <Compile Include="GameControl.cs" />
-    <Compile Include="menu\Menu.cs" />
     <Compile Include="menu\MenuAction.cs" />
     <Compile Include="menu\MenuNode.cs" />
   </ItemGroup>

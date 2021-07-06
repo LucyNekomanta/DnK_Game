@@ -54,10 +54,15 @@
     <Compile Include="quests\QuestPool.cs" />
     <Compile Include="guild\Guild.cs" />
     <Compile Include="GameControl.cs" />
+    <Compile Include="menu\MenuAction.cs" />
+    <Compile Include="menu\MenuNode.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="menu\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

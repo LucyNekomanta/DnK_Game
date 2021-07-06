@@ -1,4 +1,6 @@
 ﻿using static System.Console;
+using DnK_Game.menu;
+using System.Collections.Generic;
 
 namespace DnK_Game
 {
@@ -9,14 +11,19 @@ namespace DnK_Game
             WriteLine("Starting dnk_game");
 
             GameControl gc = new GameControl();
-
             gc.Init();
 
-            gc.Run();
+            MenuNode mainMenu = new MenuNode("Main");
+            mainMenu.AddAction("Start", null);
+            mainMenu.AddAction("Exit", null);
+
+            MenuNode settingsMenu = mainMenu.AddSubNode("Settings");
+            settingsMenu.AddSubNode("Audio");
+            settingsMenu.AddSubNode("Graphics");
+
+            mainMenu.Show();
 
             gc.Teardown();
-
-            ReadKey(true);
         }
     }
 }

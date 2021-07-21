@@ -52,7 +52,7 @@ namespace DnK_Game.menu
 
             foreach (MenuNode node in current.SubNodes)
             {
-                WriteLine($"{menuIdx}: > {node.Label}");
+                WriteLine($"{menuIdx++}: > {node.Label}");
             }
 
             if (current.Parent != null)

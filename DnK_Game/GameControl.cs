@@ -50,10 +50,8 @@ namespace DnK_Game
 
         public void NewGame()
         {
-            WriteLine("New Game");
             if (File.Exists(saveGameFileName))
             {
-                WriteLine($"{saveGameFileName} found");
                 File.Delete(saveGameFileName);
             }
             guild = null;

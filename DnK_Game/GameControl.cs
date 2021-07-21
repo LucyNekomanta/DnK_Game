@@ -64,11 +64,6 @@ namespace DnK_Game
             Init();
         }
 
-        public bool SaveFileExists()
-        {
-            return File.Exists(saveGameFileName);
-        }
-
         private void SetupGuild()
         {
             // **** Guild ****

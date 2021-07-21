@@ -14,10 +14,7 @@ namespace DnK_Game
             gc.Init();
 
             MenuNode mainMenu = new MenuNode("Main");
-            if (gc.SaveFileExists())
-            {
-                mainMenu.AddAction("New Game", gc.NewGame);
-            }
+            mainMenu.AddAction("New Game", gc.NewGame);
             mainMenu.AddAction("Start", gc.Run);
             mainMenu.AddAction("Exit", null);
 

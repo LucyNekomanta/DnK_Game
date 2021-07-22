@@ -1,6 +1,7 @@
 ﻿using static System.Console;
 using DnK_Game.menu;
 using DnK_Game.misc;
+using static DnK_Game.misc.InputHelper;
 
 namespace DnK_Game
 {
@@ -25,7 +26,7 @@ namespace DnK_Game
             do
             {
                 mainMenu.Show();
-            } while (mainMenu.Select(InputHelper.ReadDigit()));
+            } while (mainMenu.Select(ReadDigit()));
 
             gc.Teardown();
         }

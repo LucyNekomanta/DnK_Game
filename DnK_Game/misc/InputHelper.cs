@@ -13,8 +13,15 @@ namespace DnK_Game.misc
 
         public static int ReadDigit()
         {
-            char inputChar = ReadChar();
-            return int.Parse(inputChar.ToString());
+            int outDigit = 0;
+            char inputChar = '\0';
+
+            do
+            {   
+                inputChar = ReadChar();
+            } while (!int.TryParse(inputChar.ToString(), out outDigit));
+
+            return outDigit;
         }
     }
 }

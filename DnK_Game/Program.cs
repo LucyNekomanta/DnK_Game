@@ -1,6 +1,6 @@
 ﻿using static System.Console;
 using DnK_Game.menu;
-using System.Collections.Generic;
+using DnK_Game.misc;
 
 namespace DnK_Game
 {
@@ -22,12 +22,10 @@ namespace DnK_Game
             settingsMenu.AddSubNode("Audio");
             settingsMenu.AddSubNode("Graphics");
 
-            int input = 0;
             do
             {
                 mainMenu.Show();
-                input = int.Parse(ReadLine());
-            } while (mainMenu.Select(input));
+            } while (mainMenu.Select(InputHelper.ReadDigit()));
 
             gc.Teardown();
         }

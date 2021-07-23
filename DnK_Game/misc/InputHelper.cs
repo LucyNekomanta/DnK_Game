@@ -7,7 +7,7 @@ namespace DnK_Game.misc
     {
         public static char ReadChar()
         {
-            ConsoleKeyInfo input = System.Console.ReadKey();
+            ConsoleKeyInfo input = System.Console.ReadKey(true);
             return input.KeyChar;
         }
 

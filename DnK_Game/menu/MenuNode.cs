@@ -41,7 +41,7 @@ namespace DnK_Game.menu
 
         public void Show()
         {
-            WriteLine($"# {current.Label}");
+            WriteLine($"\n# {current.Label}");
 
             int menuIdx = 1;
 

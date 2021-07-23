@@ -1,2 +1,2 @@
 # DnK_Game
-best game
+Learning C# with a game in mind.

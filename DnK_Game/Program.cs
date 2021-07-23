@@ -1,6 +1,7 @@
 ﻿using static System.Console;
 using DnK_Game.menu;
-using System.Collections.Generic;
+using DnK_Game.misc;
+using static DnK_Game.misc.InputHelper;
 
 namespace DnK_Game
 {
@@ -14,14 +15,18 @@ namespace DnK_Game
             gc.Init();
 
             MenuNode mainMenu = new MenuNode("Main");
-            mainMenu.AddAction("Start", null);
+            mainMenu.AddAction("New Game", gc.NewGame);
+            mainMenu.AddAction("Start", gc.Run);
             mainMenu.AddAction("Exit", null);
 
             MenuNode settingsMenu = mainMenu.AddSubNode("Settings");
             settingsMenu.AddSubNode("Audio");
             settingsMenu.AddSubNode("Graphics");
 
-            mainMenu.Show();
+            do
+            {
+                mainMenu.Show();
+            } while (mainMenu.Select(ReadDigit(), ignoreInvalid: true));
 
             gc.Teardown();
         }

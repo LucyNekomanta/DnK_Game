@@ -56,6 +56,7 @@
     <Compile Include="GameControl.cs" />
     <Compile Include="menu\MenuAction.cs" />
     <Compile Include="menu\MenuNode.cs" />
+    <Compile Include="misc\InputHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -63,6 +64,7 @@
   <ItemGroup />
   <ItemGroup>
     <Folder Include="menu\" />
+    <Folder Include="misc\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

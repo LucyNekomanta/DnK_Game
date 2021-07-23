@@ -48,6 +48,20 @@ namespace DnK_Game
             SetupMonsters();
         }
 
+        public void NewGame()
+        {
+            if (File.Exists(saveGameFileName))
+            {
+                File.Delete(saveGameFileName);
+            }
+            guild = null;
+            questBoard = null;
+            heroPool = null;
+            monsterPool = null;
+
+            Init();
+        }
+
         private void SetupGuild()
         {
             // **** Guild ****

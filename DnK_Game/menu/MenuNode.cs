@@ -41,6 +41,7 @@ namespace DnK_Game.menu
 
         public void Show()
         {
+            Console.Clear();
             WriteLine($"\n# {current.Label}");
 
             int menuIdx = 1;

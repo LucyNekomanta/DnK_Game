@@ -61,22 +61,34 @@ namespace DnK_Game.menu
             }
         }
 
-        public bool Select(int selection)
+        public bool Select(int selection, bool ignoreInvalid)
         {
             if ( selection < 0)
             {
+                if ( ignoreInvalid )
+                {
+                    return true;
+                }
                 throw new ArgumentOutOfRangeException("selection",
                     "The selected menu item index must not be negative");
             }
 
             if ( selection > current.EntryCount)
             {
+                if (ignoreInvalid)
+                {
+                    return true;
+                }
                 throw new ArgumentOutOfRangeException("selection",
                                     "The selected menu item index exceeds the number of entries");
             }
 
             if ( selection == 0 && current.Parent == null)
             {
+                if (ignoreInvalid)
+                {
+                    return true;
+                }
                 throw new ArgumentOutOfRangeException("selection",
                         "This is node does not have a parent node");
             }

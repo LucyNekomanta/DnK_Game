@@ -26,7 +26,7 @@ namespace DnK_Game
             do
             {
                 mainMenu.Show();
-            } while (mainMenu.Select(ReadDigit()));
+            } while (mainMenu.Select(ReadDigit(), ignoreInvalid: true));
 
             gc.Teardown();
         }
